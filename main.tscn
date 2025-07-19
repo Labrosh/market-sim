@@ -1,0 +1,260 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpuif21lxbyy8"]
+
+[ext_resource type="Script" uid="uid://cpmn2bn1r5vua" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bu5p5m0katd16" path="res://Sprites/ui_panel_mossy_128x128_transparent.png" id="2_0xm2m"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("day_label", "wood_label", "gold_label", "time_label", "price_label", "location_label", "game_log", "Chop_Button", "Sell_Button", "Sleep_Button", "go_to_town_button", "go_to_forest_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+day_label = NodePath("UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels/DayLabel")
+wood_label = NodePath("UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels/WoodLabel")
+gold_label = NodePath("UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels/GoldLabel")
+time_label = NodePath("UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels/TimeLabel")
+price_label = NodePath("UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels/PriceLabel")
+location_label = NodePath("UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels/LocationLabel")
+game_log = NodePath("UI/MainView/LogContainer/LogContainerResize/GameLog")
+Chop_Button = NodePath("UI/MainView/MenuContainer/MenuContainerStack/Chop/ChopButton")
+Sell_Button = NodePath("UI/MainView/MenuContainer/MenuContainerStack/Sell/SellButton")
+Sleep_Button = NodePath("UI/MainView/MenuContainer/MenuContainerStack/Sleep/SleepButton")
+go_to_town_button = NodePath("UI/MainView/TravelContainer/TravelContainerResize/TravelButtons/GoToTownButton")
+go_to_forest_button = NodePath("UI/MainView/TravelContainer/TravelContainerResize/TravelButtons/GoToForestButton")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainView" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContainer" type="NinePatchRect" parent="UI/MainView"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_0xm2m")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MenuContainerStack" type="VBoxContainer" parent="UI/MainView/MenuContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -50.5
+offset_right = 48.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chop" type="MarginContainer" parent="UI/MainView/MenuContainer/MenuContainerStack"]
+layout_mode = 2
+
+[node name="ChopButton" type="Button" parent="UI/MainView/MenuContainer/MenuContainerStack/Chop"]
+layout_mode = 2
+text = "Chop Wood
+"
+
+[node name="Sell" type="MarginContainer" parent="UI/MainView/MenuContainer/MenuContainerStack"]
+layout_mode = 2
+
+[node name="SellButton" type="Button" parent="UI/MainView/MenuContainer/MenuContainerStack/Sell"]
+layout_mode = 2
+text = "Sell Wood"
+
+[node name="Sleep" type="MarginContainer" parent="UI/MainView/MenuContainer/MenuContainerStack"]
+layout_mode = 2
+
+[node name="SleepButton" type="Button" parent="UI/MainView/MenuContainer/MenuContainerStack/Sleep"]
+layout_mode = 2
+text = "Sleep"
+
+[node name="TravelContainer" type="NinePatchRect" parent="UI/MainView"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_0xm2m")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="TravelContainerResize" type="MarginContainer" parent="UI/MainView/TravelContainer"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TravelButtons" type="VBoxContainer" parent="UI/MainView/TravelContainer/TravelContainerResize"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="GoToForestButton" type="Button" parent="UI/MainView/TravelContainer/TravelContainerResize/TravelButtons"]
+layout_mode = 2
+text = "Go To Forest"
+
+[node name="GoToTownButton" type="Button" parent="UI/MainView/TravelContainer/TravelContainerResize/TravelButtons"]
+layout_mode = 2
+text = "Go To Town"
+
+[node name="ResourceContainer" type="NinePatchRect" parent="UI/MainView"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_0xm2m")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="ResourceContainerResize" type="MarginContainer" parent="UI/MainView/ResourceContainer"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -55.0
+offset_right = 61.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourceContainerLabels" type="VBoxContainer" parent="UI/MainView/ResourceContainer/ResourceContainerResize"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="WoodLabel" type="Label" parent="UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels"]
+layout_mode = 2
+text = "Wood Total:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels"]
+layout_mode = 2
+text = "Gold Total:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="UI/MainView/ResourceContainer/ResourceContainerResize/ResourceContainerLabels"]
+layout_mode = 2
+text = "Price Per Wood:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsContainer" type="NinePatchRect" parent="UI/MainView"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_0xm2m")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="StatsContainerResize" type="MarginContainer" parent="UI/MainView/StatsContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsContainerLabels" type="VBoxContainer" parent="UI/MainView/StatsContainer/StatsContainerResize"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="DayLabel" type="Label" parent="UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels"]
+layout_mode = 2
+text = "Day:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LocationLabel" type="Label" parent="UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels"]
+layout_mode = 2
+text = "Current Location:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="UI/MainView/StatsContainer/StatsContainerResize/StatsContainerLabels"]
+layout_mode = 2
+text = "Current Time:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LogContainer" type="NinePatchRect" parent="UI/MainView"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_0xm2m")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="LogContainerResize" type="MarginContainer" parent="UI/MainView/LogContainer"]
+custom_minimum_size = Vector2(270, 365)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameLog" type="RichTextLabel" parent="UI/MainView/LogContainer/LogContainerResize"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/table_h_separation = 2
+theme_override_constants/outline_size = 4
+
+[connection signal="pressed" from="UI/MainView/MenuContainer/MenuContainerStack/Chop/ChopButton" to="." method="_on_chop_button_pressed"]
+[connection signal="pressed" from="UI/MainView/MenuContainer/MenuContainerStack/Sell/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="UI/MainView/MenuContainer/MenuContainerStack/Sleep/SleepButton" to="." method="_on_sleep_button_pressed"]
+[connection signal="pressed" from="UI/MainView/TravelContainer/TravelContainerResize/TravelButtons/GoToForestButton" to="." method="_on_go_to_forest_button_pressed"]
+[connection signal="pressed" from="UI/MainView/TravelContainer/TravelContainerResize/TravelButtons/GoToTownButton" to="." method="_on_go_to_town_button_pressed"]

@@ -1,0 +1,9 @@
+🛠 Next Steps (Big Picture Vision)
+Step	Task	Result
+1. ✅ Done	Implement basic job (woodcutter)	✔️ MVP
+2. 🔁 Repeat	Create Miner job	Source iron
+3. 🧠 Abstract	Define JobData or JobScene that encapsulates logic (inputs, outputs, time, action name)	Modular system
+4. 🛒 Create market singleton	Tracks item_stock and item_prices, updates daily	Core simulation logic
+5. 🧑‍🤝‍🧑 Add AI workers	N agents pick jobs, do X actions, sell to market	Demand changes dynamically
+6. 📉 Price function	Prices fall when supply is high, rise when scarce	Emergent behavior
+7. 🧍‍♂️ Player integration	You pick job, sell goods, react to market	Market sim complete
